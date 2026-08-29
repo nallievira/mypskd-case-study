@@ -4,14 +4,16 @@ A portfolio case study of **MyPSKD**, a full-stack Learning Management System (L
 
 > **Case study note**
 >
-> This repository documents the project, product decisions, and my contribution. The original application source code is maintained in the team’s development repository and is intentionally not duplicated here.
+> This repository documents the project, product decisions, and my contribution. The original application source code is maintained in the team development repository and is intentionally not duplicated here.
+>
+> **Original team repository:** https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9
 
 ## Project Snapshot
 
 - **Project period:** February–June 2026
 - **Context:** Academic Software Development capstone
 - **Team:** 3-person core development team
-- **Platforms:** Mobile and web
+- **Platforms:** Mobile and web from a shared Flutter codebase
 - **Primary users:** Students, teachers, and administrators
 - **Development approach:** Scrum across 7 sprints
 
@@ -31,51 +33,72 @@ MyPSKD supports three primary roles — **Student, Teacher, and Admin** — with
 - Record and review attendance
 - Manage grades and teacher feedback
 - Publish announcements
-- Support class discussions
-- Run randomized digital examinations
+- Support class discussions and channels
+- Run digital examinations and quizzes
 - Auto-save examination progress
 - Monitor active examinations from the teacher side
 - Detect and record tab-switch behavior during examinations
 - Export examination results
-- Provide in-app chat
+- Provide private and group messaging
 - Support teacher-created online meetings
 
 ## My Role & Contributions
 
 This was a **collaborative team project**. My contribution evolved throughout development rather than staying within a single fixed role.
 
-During the earlier stages, I contributed primarily to **frontend implementation and UI/UX work**, while also helping coordinate communication across the team. As development progressed, I expanded into **database and backend work**, supporting integration between the user-facing application, Firebase data layer, and backend services.
+I initially focused heavily on **Flutter frontend implementation and UI/UX**, particularly responsive teacher-facing and classroom workflows. As development progressed, I also worked across **backend routes, Firestore integration, messaging behavior, notifications, and feature integration**, while helping coordinate and refine the product across iterations.
 
-My contribution included:
+Selected contributions visible in the original repository include:
 
-- Frontend implementation for application workflows
-- UI/UX refinement and interface consistency
-- Cross-team communication and coordination during iterative development
-- Supporting Firestore/database work as the application scope grew
-- Supporting backend implementation and integration using Node.js and Express
-- Participating in testing, debugging, and feature refinement across sprints
-- Helping prepare the product for final demonstration and exhibition
+- Redesigned and refined the **Teacher Dashboard and teacher classroom views**
+- Improved responsive Flutter behavior across **mobile and web**, including navigation, overflow handling, class views, quizzes, learning materials, attendance, and grading interfaces
+- Extended the messaging system with **message unsend, per-user clear chat, leave-group behavior, polling, and Socket.IO integration fixes**
+- Improved assignment workflows so newly created assignments could be **posted to the selected class channel** and generate **student notifications**
+- Implemented backend/Firestore behavior for teacher announcements, including **student notifications and channel posting**
+- Refined teacher workflows for class access requests, assignments, grades, announcements, and classroom navigation
+- Participated in testing, debugging, integration, and feature refinement throughout development
+- Helped prepare the working product for final demonstration and exhibition
+
+### Contribution Evidence
+
+The original team repository retains merged pull requests under my GitHub account (`nallievira`), including:
+
+- [PR #67 — Messaging: unsend, clear chat, leave group, polling, and socket fixes](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/67)
+- [PR #68 — Responsive UI and teacher workflow improvements, including assignment notifications](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/68)
+- [PR #81 — Teacher Dashboard and teacher classroom UI redesign](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/81)
+- [PR #89 — Teacher classroom views, access workflow, and assignment UI](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/89)
+
+These links are included to make my individual contribution to the collaborative codebase directly traceable.
 
 ## Technology Stack
 
 | Layer | Technologies |
 | --- | --- |
-| Mobile | Flutter |
-| Web | React / Next.js |
+| Client | Flutter / Dart — shared mobile and web application |
 | Backend | Node.js, Express |
 | Database | Firebase Firestore |
-| Authentication & authorization | JWT, Role-Based Access Control (RBAC) |
+| Authentication & authorization | JSON Web Tokens (JWT), Role-Based Access Control (RBAC) |
+| Real-time communication | Socket.IO |
+| File/media handling | Cloudinary |
+| Online meetings | Jitsi Meet integration |
 | Deployment | Vercel |
 
 ## System Architecture
 
-At a high level, MyPSKD combines two client experiences with shared backend and data services:
+At a high level, MyPSKD uses a shared Flutter client for mobile and web, connected to Node.js/Express services and Firebase Firestore.
 
 ```text
-Flutter Mobile App ─┐
-                    ├── Node.js / Express Services ── Firebase Firestore
-React / Next.js Web ┘                 │
-                                      └── JWT + RBAC
+                 ┌── Flutter Mobile
+Flutter Client ──┤
+                 └── Flutter Web
+                         │
+                  REST API / Socket.IO
+                         │
+                  Node.js + Express
+                         │
+            JWT authentication + RBAC
+                         │
+                 Firebase Firestore
 ```
 
 The role-based structure was important because students, teachers, and administrators interact with the same school data differently. Authentication and authorization therefore had to be treated as part of the application architecture rather than only as a login screen.
@@ -90,9 +113,13 @@ Instead of exposing the same interface to every user, MyPSKD separates workflows
 
 The examination feature was designed as more than a static question form. It includes randomized questions, auto-save, teacher-side monitoring, result export, and tab-switch event detection. The tab-switch mechanism should be understood as **behavioral monitoring**, not as a guarantee that cheating can be prevented.
 
-### Shared product across mobile and web
+### Shared Flutter product across mobile and web
 
-Building both Flutter and web clients required the team to think about consistent workflows across different interfaces while keeping shared data and permissions synchronized.
+Using Flutter for both mobile and web allowed the project to share a substantial portion of its application structure while still requiring responsive behavior for different screen sizes and interaction patterns. Several development iterations therefore focused specifically on adapting classroom workflows between mobile and browser layouts.
+
+### Real-time and asynchronous communication
+
+Communication features combine Socket.IO behavior with persistent data in Firestore. During development, messaging workflows also had to account for mobile behavior, conversation state, message history, group membership, and user-specific actions such as clearing a conversation.
 
 ## Development Process
 
@@ -108,7 +135,7 @@ The project included:
 - **User Acceptance Testing (UAT)**
 - Software-quality evaluation informed by **ISO/IEC 9126** quality characteristics
 
-Testing was used not only to verify individual functions but also to identify integration issues between features and user roles.
+Testing was used not only to verify individual functions but also to identify integration issues between features, platforms, and user roles.
 
 ## Outcome
 
@@ -122,6 +149,8 @@ Key takeaways included:
 
 - Building software across frontend, backend, and database boundaries
 - Translating school workflows into role-based product features
+- Developing responsive product behavior across mobile and web
+- Working with real-time communication and persistent application state
 - Working in an iterative multi-person development process
 - Communicating across responsibilities when project needs changed
 - Debugging integration problems rather than only local code issues
@@ -132,4 +161,4 @@ Key takeaways included:
 
 This repository is intentionally a **case study**, not a duplicate of the original team source repository. It exists to document the product, the engineering context, and my individual contribution clearly for portfolio review.
 
-Screenshots, architecture visuals, original source attribution, and demo references can be added here as the project documentation is organized and verified.
+The original source code and contribution history remain available in the linked team repository. Screenshots, architecture visuals, and verified demo references can be added here as the remaining project documentation is organized.
