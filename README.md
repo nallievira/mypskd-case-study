@@ -10,9 +10,9 @@ A portfolio case study of **MyPSKD**, a full-stack Learning Management System (L
 
 ## Project Snapshot
 
-- **Project period:** February–June 2026
+- **Project period:** March–June 2026
 - **Context:** Academic Software Development capstone
-- **Team:** 3-person core development team
+- **Team:** 5-person core development team
 - **Platforms:** Mobile and web from a shared Flutter codebase
 - **Users:** Students, teachers, and administrators
 - **Process:** Scrum across 7 sprints
