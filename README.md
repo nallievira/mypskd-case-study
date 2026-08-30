@@ -4,7 +4,7 @@ A portfolio case study of **MyPSKD**, a full-stack Learning Management System (L
 
 > **Case study note**
 >
-> This repository documents the project, product decisions, and my contribution. The original application source code is maintained in the team development repository and is intentionally not duplicated here.
+> This repository documents the product, engineering decisions, and my individual contribution. The application source code remains in the original team repository and is intentionally not duplicated here.
 >
 > **Original team repository:** https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9
 
@@ -14,61 +14,105 @@ A portfolio case study of **MyPSKD**, a full-stack Learning Management System (L
 - **Context:** Academic Software Development capstone
 - **Team:** 3-person core development team
 - **Platforms:** Mobile and web from a shared Flutter codebase
-- **Primary users:** Students, teachers, and administrators
-- **Development approach:** Scrum across 7 sprints
+- **Users:** Students, teachers, and administrators
+- **Process:** Scrum across 7 sprints
 
-## The Problem
+## The Product
 
-School learning workflows are often fragmented across separate tools for assignments, attendance, grades, announcements, communication, meetings, and examinations. MyPSKD was designed as a unified school platform that brings these workflows into one role-based system.
+School learning workflows are often fragmented across separate tools for assignments, attendance, grades, announcements, communication, meetings, and examinations. MyPSKD was designed to bring those workflows into one role-based platform.
 
-## The Solution
-
-MyPSKD supports three primary roles — **Student, Teacher, and Admin** — with different permissions and workflows. The system combines everyday classroom management with digital assessment and communication features in one product.
+The system supports three primary roles — **Student, Teacher, and Admin** — with different permissions and workflows.
 
 ### Core Capabilities
 
-- Join classes using class codes
-- Share and access learning materials
-- Create, submit, and manage assignments
-- Record and review attendance
-- Manage grades and teacher feedback
-- Publish announcements
-- Support class discussions and channels
-- Run digital examinations and quizzes
-- Auto-save examination progress
-- Monitor active examinations from the teacher side
-- Detect and record tab-switch behavior during examinations
-- Export examination results
-- Provide private and group messaging
-- Support teacher-created online meetings
+- Class joining and classroom management
+- Learning materials and assignments
+- Attendance, grades, and teacher feedback
+- Announcements, channels, and notifications
+- Private and group messaging
+- Digital quizzes and examinations
+- Auto-save and configurable exam settings
+- Teacher-side live exam monitoring
+- Tab-switch event logging during examinations
+- Online meeting integration
+
+## Product Walkthrough
+
+### Teacher Experience
+
+<table>
+<tr>
+<td width="50%"><img src="assets/teacher-dashboard-mobile.png" alt="MyPSKD teacher dashboard on mobile"></td>
+<td width="50%"><img src="assets/class-management-mobile.png" alt="MyPSKD teacher class management on mobile"></td>
+</tr>
+<tr>
+<td align="center"><strong>Teacher Dashboard</strong></td>
+<td align="center"><strong>Class Management</strong></td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="50%"><img src="assets/attendance-mobile.png" alt="MyPSKD attendance journal on mobile"></td>
+<td width="50%"><img src="assets/chat-mobile.png" alt="MyPSKD messaging interface on mobile"></td>
+</tr>
+<tr>
+<td align="center"><strong>Attendance Journal</strong></td>
+<td align="center"><strong>Messaging</strong></td>
+</tr>
+</table>
+
+### Digital Assessment
+
+<table>
+<tr>
+<td width="50%"><img src="assets/quiz-management-mobile.png" alt="MyPSKD quiz management interface"></td>
+<td width="50%"><img src="assets/secure-exam-settings.png" alt="MyPSKD secure exam settings"></td>
+</tr>
+<tr>
+<td align="center"><strong>Quiz Management</strong></td>
+<td align="center"><strong>Exam Configuration</strong></td>
+</tr>
+</table>
+
+The examination workflow includes configurable assessment settings and teacher-side monitoring. Tab-switch events are treated as **behavioral signals**, not as proof of cheating.
+
+![MyPSKD live cheating monitor](assets/live-cheating-monitor.png)
+
+### Student and Admin Roles
+
+![MyPSKD student dashboard on web](assets/student-dashboard-web.png)
+
+![MyPSKD admin user management on web](assets/admin-user-management-web.png)
+
+The web views demonstrate the same product serving different user roles while adapting its interface and available actions to each role.
 
 ## My Role & Contributions
 
-This was a **collaborative team project**. My contribution evolved throughout development rather than staying within a single fixed role.
+This was a **collaborative team project**. My responsibilities evolved during development rather than remaining within one fixed role.
 
-I initially focused heavily on **Flutter frontend implementation and UI/UX**, particularly responsive teacher-facing and classroom workflows. As development progressed, I also worked across **backend routes, Firestore integration, messaging behavior, notifications, and feature integration**, while helping coordinate and refine the product across iterations.
+I initially focused heavily on **Flutter frontend implementation and UI/UX**, especially responsive teacher-facing and classroom workflows. As the project grew, I also worked across **backend routes, Firestore integration, messaging behavior, notifications, and feature integration**.
 
 Selected contributions visible in the original repository include:
 
 - Redesigned and refined the **Teacher Dashboard and teacher classroom views**
-- Improved responsive Flutter behavior across **mobile and web**, including navigation, overflow handling, class views, quizzes, learning materials, attendance, and grading interfaces
-- Extended the messaging system with **message unsend, per-user clear chat, leave-group behavior, polling, and Socket.IO integration fixes**
-- Improved assignment workflows so newly created assignments could be **posted to the selected class channel** and generate **student notifications**
-- Implemented backend/Firestore behavior for teacher announcements, including **student notifications and channel posting**
-- Refined teacher workflows for class access requests, assignments, grades, announcements, and classroom navigation
+- Improved responsive Flutter behavior across **mobile and web**, including navigation, overflow handling, class views, quizzes, learning materials, attendance, and grading
+- Extended messaging with **message unsend, per-user clear chat, leave-group behavior, polling, and Socket.IO fixes**
+- Improved assignment workflows so new assignments could be **posted to class channels** and generate **student notifications**
+- Implemented backend/Firestore behavior for teacher announcements, including **notifications and channel posting**
+- Refined teacher workflows for class access, assignments, grades, announcements, and classroom navigation
 - Participated in testing, debugging, integration, and feature refinement throughout development
-- Helped prepare the working product for final demonstration and exhibition
 
 ### Contribution Evidence
 
-The original team repository retains merged pull requests under my GitHub account (`nallievira`), including:
+Merged pull requests under my GitHub account (`nallievira`) include:
 
 - [PR #67 — Messaging: unsend, clear chat, leave group, polling, and socket fixes](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/67)
 - [PR #68 — Responsive UI and teacher workflow improvements, including assignment notifications](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/68)
 - [PR #81 — Teacher Dashboard and teacher classroom UI redesign](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/81)
 - [PR #89 — Teacher classroom views, access workflow, and assignment UI](https://github.com/Elvan1210/SoftwareDevelopment-Project-Kelompok9/pull/89)
 
-These links are included to make my individual contribution to the collaborative codebase directly traceable.
+These links make my contribution to the collaborative codebase directly traceable.
 
 ## Technology Stack
 
@@ -85,80 +129,57 @@ These links are included to make my individual contribution to the collaborative
 
 ## System Architecture
 
-At a high level, MyPSKD uses a shared Flutter client for mobile and web, connected to Node.js/Express services and Firebase Firestore.
+![MyPSKD system architecture](assets/architecture.svg)
 
-```text
-                 ┌── Flutter Mobile
-Flutter Client ──┤
-                 └── Flutter Web
-                         │
-                  REST API / Socket.IO
-                         │
-                  Node.js + Express
-                         │
-            JWT authentication + RBAC
-                         │
-                 Firebase Firestore
-```
+The shared Flutter client connects to Node.js/Express services through REST APIs and Socket.IO. Backend services handle authentication and role authorization, persist application data in Firestore, and integrate external services such as Cloudinary and Jitsi Meet.
 
-The role-based structure was important because students, teachers, and administrators interact with the same school data differently. Authentication and authorization therefore had to be treated as part of the application architecture rather than only as a login screen.
-
-## Product & Engineering Decisions
+## Engineering Decisions
 
 ### Role-based workflows
 
-Instead of exposing the same interface to every user, MyPSKD separates workflows by role. Teachers manage learning activities and assessment, students access and submit learning work, while administrators handle higher-level system management.
+Students, teachers, and administrators interact with the same school data differently, so permissions and role-specific workflows were part of the product architecture rather than only a login concern.
 
-### Examination monitoring
+### Responsive mobile and web experience
 
-The examination feature was designed as more than a static question form. It includes randomized questions, auto-save, teacher-side monitoring, result export, and tab-switch event detection. The tab-switch mechanism should be understood as **behavioral monitoring**, not as a guarantee that cheating can be prevented.
+A shared Flutter codebase reduced duplication, but the team still had to adapt navigation, layout, and interaction patterns for different screen sizes. Several iterations focused specifically on responsive classroom workflows.
 
-### Shared Flutter product across mobile and web
+### Assessment monitoring without overclaiming
 
-Using Flutter for both mobile and web allowed the project to share a substantial portion of its application structure while still requiring responsive behavior for different screen sizes and interaction patterns. Several development iterations therefore focused specifically on adapting classroom workflows between mobile and browser layouts.
+The examination system records tab-switch activity and exposes it to teachers during monitoring. This is presented as a **monitoring signal**, not as a guarantee that cheating can be detected or prevented.
 
-### Real-time and asynchronous communication
+### Persistent and real-time communication
 
-Communication features combine Socket.IO behavior with persistent data in Firestore. During development, messaging workflows also had to account for mobile behavior, conversation state, message history, group membership, and user-specific actions such as clearing a conversation.
+Messaging combined Socket.IO behavior with Firestore-backed conversation state. Features such as unsend, clear chat, group leaving, and mobile polling required coordination between UI state, backend routes, and persisted data.
 
-## Development Process
+## Development & Testing
 
-The project was developed using **Scrum over 7 sprints**. Features were implemented and refined iteratively rather than built as a single final release.
+The project was developed using **Scrum over 7 sprints**, with features implemented and refined iteratively.
 
-This process required the team to repeatedly coordinate UI behavior, data structure, backend logic, role permissions, and feature dependencies as the product became more complex.
+Quality work included:
 
-## Testing & Quality
-
-The project included:
-
-- **Black-box testing** for application functionality
+- **Black-box testing** of application functionality
 - **User Acceptance Testing (UAT)**
 - Software-quality evaluation informed by **ISO/IEC 9126** quality characteristics
 
-Testing was used not only to verify individual functions but also to identify integration issues between features, platforms, and user roles.
+Testing helped identify both local feature bugs and cross-feature integration issues between roles, platforms, backend logic, and persisted data.
 
 ## Outcome
 
-MyPSKD reached a demonstrable end-to-end product state and was presented at a university project exhibition. Feedback at the exhibition included encouragement to explore **commercializing the system**, which showed that the project was understandable as a potential product rather than only as a classroom prototype.
+MyPSKD reached a demonstrable end-to-end product state and was presented at a university project exhibition. Feedback included encouragement to explore **commercializing the system**, which helped frame the work as a potential product rather than only a classroom prototype.
 
 ## What I Learned
 
-This project gave me experience beyond implementing isolated features. I learned how technical decisions interact with product scope, team communication, user roles, and delivery constraints.
+The project gave me experience beyond implementing isolated features. Key takeaways included:
 
-Key takeaways included:
-
-- Building software across frontend, backend, and database boundaries
+- Building across frontend, backend, and database boundaries
 - Translating school workflows into role-based product features
-- Developing responsive product behavior across mobile and web
+- Developing responsive behavior across mobile and web
 - Working with real-time communication and persistent application state
-- Working in an iterative multi-person development process
-- Communicating across responsibilities when project needs changed
-- Debugging integration problems rather than only local code issues
-- Thinking about usability and technical implementation together
+- Debugging integration issues across multiple layers
+- Coordinating changing responsibilities in a collaborative team
+- Balancing usability, implementation constraints, and delivery
 - Evaluating a working system through testing and user acceptance
 
 ## Repository Purpose
 
-This repository is intentionally a **case study**, not a duplicate of the original team source repository. It exists to document the product, the engineering context, and my individual contribution clearly for portfolio review.
-
-The original source code and contribution history remain available in the linked team repository. Screenshots, architecture visuals, and verified demo references can be added here as the remaining project documentation is organized.
+This repository is intentionally a **case study**, not a duplicate of the original team source repository. It exists to present the product, engineering context, and my contribution clearly for portfolio review while preserving the original source and contribution history in the linked team repository.
